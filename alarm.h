@@ -1,6 +1,6 @@
 #pragma once
-#include <iostream>
 #include "timeOfDay.h"
+#include <iostream>
 
 namespace Jang
 {
@@ -10,11 +10,12 @@ namespace Jang
         bool inActive;
     public:
         alarm(timeOfDay t = timeOfDay{15,15}, bool a = false)
-        : wakeTime{t}, inActive{a} {}
-        void print() const 
+        : wakeTime{t}, inActive{a}
+        {}
+        void print() const
         {
             wakeTime.print();
-            std::cout << "Alarm is " << ((inActive) ? "on" : "off") << std::endl;
+            std::cout << " alarm is " << ((inActive) ? "on" : "off") << std::endl;
         }
         const timeOfDay& getWakeTime() const
         {
@@ -25,4 +26,4 @@ namespace Jang
             wakeTime = t;
         }
     };
-} 
+}

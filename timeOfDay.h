@@ -7,26 +7,25 @@ namespace Jang
     {
         int hour;
         int minute;
-
         void testHour()
         {
             if (hour < 0 || hour > 23)
             {
-                std::cout << "Illegal hour value\n";
+                std::cout << "Invalid hour\n";
                 std::exit(1);
             }
-        } 
+        }
         void testMinute()
         {
             if (minute < 0 || minute > 59)
             {
-                std::cout << "Illegal minute value\n";
+                std::cout << "Invalid minute\n";
                 std::exit(1);
             }
-        } 
+        }
     public:
-        timeOfDay(int h = 1, int m = 1) 
-             : hour{h}, minute{m} {testHour(); testMinute();}
+        timeOfDay(int h = 1, int m =1): hour{h}, minute{m}
+        {testHour(); testMinute();}
         void input()
         {
             std::cout << "Enter hour: ";
@@ -34,16 +33,28 @@ namespace Jang
             std::cout << "Enter minute: ";
             std::cin >> minute; testMinute();
         }
-        void setHour(int h) { hour = h; testHour();}
-        void setMinute(int m) { minute = m; testMinute();}
+        void setHour(int h)
+        {
+            hour = h; testHour();
+        }
+        void setMinute(int m)
+        {
+            minute = m; testMinute();
+        }
         void print() const
         {
-            if (hour < 0) std::cout << "0";
+            if (hour < 10) std::cout << "0";
             std::cout << hour << ":";
-            if (minute <0) std::cout << "0";
-            std::cout << minute << std::endl;
+            if (minute < 10) std::cout << "0";
+            std::cout << minute;
         }
-        int getHour() const {return hour;}
-        int getMinute() const {return minute;}
+        int getHour() const 
+        {
+            return hour;
+        }
+        int getMinute() const
+        {
+            return minute;
+        }
     };
-} 
+}
